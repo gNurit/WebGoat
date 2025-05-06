@@ -33,6 +33,7 @@ public class StartWebGoat {
             .run(args);
 
     printStartUpMessage(webGoatContext);
+    log.info("***** Startup *****");
   }
 
   private static void printStartUpMessage(ApplicationContext webGoatContext) {
