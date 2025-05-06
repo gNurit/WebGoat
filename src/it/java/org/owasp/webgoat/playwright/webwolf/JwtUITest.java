@@ -19,8 +19,10 @@ class JwtUITest extends PlaywrightTest {
     var secretKey = "test";
     var jwt =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+    var jwt2 =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
 
-    page.navigate(webWolfURL("jwt"));
+    page.navigate(webWolfURL("jwt2"));
     page.getByPlaceholder("Enter your secret key").fill(secretKey);
     page.getByPlaceholder("Paste token here").type(jwt);
     assertThat(page.locator("#header"))

@@ -38,6 +38,15 @@ public class SqlInjectionLesson5a implements AssignmentEndpoint {
   @ResponseBody
   public AttackResult completed(
       @RequestParam String account, @RequestParam String operator, @RequestParam String injection) {
+     String query = "";
+    try (Connection connection = dataSource.getConnection()) {
+      query =
+          "SELECT * FROM user_data WHERE first_name = 'John' and last_name = '" + accountName + "'";
+      try (Statement statement =
+          connection.createStatement(
+              ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE)) {
+        ResultSet results = statement.executeQuery(query);
+      
     return injectableQuery(account + " " + operator + " " + injection);
   }
 
